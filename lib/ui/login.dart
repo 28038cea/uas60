@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uas/ui/berandaadmin.dart';
 import 'package:uas/ui/beranda.dart';
 import 'package:uas/member.dart';
+import 'package:uas/ui/berandauser.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -37,10 +38,16 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
     } else {
       if (datauser['level'] == "1") {
         //print("welcome admin");
-        Navigator.pushReplacementNamed(context, '/BerandaAdmin');
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+                builder: (BuildContext context) => BerandaAdmin()));
       } else if (datauser['level'] == "2") {
         //print("welcome user");
-        Navigator.pushReplacementNamed(context, '/Member');
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+                builder: (BuildContext context) => BerandaUser()));
       }
     }
   }
